@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 12px;
+      width: 250px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .card h2 {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JSON</h1>
+  <div id="container"></div>
+
+  <script>
+    const animals = [
+      {
+        id: 1,
+        name: "Mr. Fluffy",
+        type: "cat",
+        age: 3,
+        color: "white",
+        skills: ["jumping", "purring"],
+        image: "https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"
+      },
+      {
+        id: 2,
+        name: "Rex",
+        type: "dog",
+        age: 5,
+        color: "brown",
+        skills: ["fetching", "barking", "digging"],
+        image: "https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg"
+      },
+      {
+        id: 3,
+        name: "Morty Smith",
+        type: "character",
+        age: 14,
+        color: "yellow shirt",
+        skills: ["screaming", "running"],
+        image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+      },
+      {
+        id: 4,
+        name: "Princess Meow",
+        type: "cat",
+        age: 2,
+        color: "black",
+        skills: ["sleeping", "posing", "meowing"],
+        image: "https://cdn2.thecatapi.com/images/bpc.jpg"
+      },
+      {
+        id: 5,
+        name: "Barkley",
+        type: "dog",
+        age: 1,
+        color: "white and brown",
+        skills: ["tail-wagging", "howling"],
+        image: "https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg"
+      }
+    ];
+
+    const container = document.getElementById('container');
+
+    animals.forEach(animal => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const img = document.createElement('img');
+      img.src = animal.image;
+      img.alt = animal.name;
+
+      const name = document.createElement('h2');
+      name.textContent = animal.name;
+
+      const type = document.createElement('p');
+      type.textContent = `Typ: ${animal.type}`;
+
+      const age = document.createElement('p');
+      age.textContent = `Věk: ${animal.age}`;
+
+      const color = document.createElement('p');
+      color.textContent = `Barva: ${animal.color}`;
+
+      const skills = document.createElement('p');
+      skills.textContent = `Dovednosti: ${animal.skills.join(', ')}`;
+
+      card.appendChild(img);
+      card.appendChild(name);
+      card.appendChild(type);
+      card.appendChild(age);
+      card.appendChild(color);
+      card.appendChild(skills);
+
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
